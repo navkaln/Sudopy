@@ -10,7 +10,6 @@ xy = np.zeros((9,9))
 # value of 1 indicates a known quantity. 0 indicates an unknown quantity. -1 indicates cell can't be a 1
 # 1 in the [2][3][5] position would mean there's a 6 in the 3rd row and 6th column  
 zxy = np.zeros((9,9,9))
-#print(xy.sum(axis = 1))
 
 unsolved = np.array(
  [[ 0., 0., 2., 7., 3., 0., 0., 6., 0.],
@@ -34,8 +33,6 @@ solved =  np.array(
   [ 2., 7., 9., 8., 4., 3., 6., 1., 5.],
   [ 5., 6., 8., 9., 1., 7., 2., 3., 4.]])
 
-
-###  0 a[0],2 i column,6 a[1]row
 
 
 def store_number(x,y,z): #x = which row, y = which column, z = what number
@@ -125,33 +122,17 @@ for i in range(9):
 #####################################################################################
 #####################################################################################
 
-tempz = zxy.sum(axis = 0)
+"""def search_depth():
+	tempz = zxy.sum(axis = 0)
+	print(tempz)
+"""
 
-#print(tempz)
 
 for t in range(99):
 	search_cols()
 	search_rows()
 print (unsolved)
 print (xy)
-"""
-def search_rows():
-	tempy = zxy.sum(axis = 2)
-	#print (zxy)
-	#print(tempy)
-	counter = 0
-	for a in np.argwhere(tempy == -8):
-		#print(a[0],a[1])
-		for i in range(9):
-			#print(zxy[a[0]][a[1]][i], i,a)
-			if zxy[a[0]][a[1]][i] == 0:
-				#print("i =",i, "a[0] =", a[0], "a[1] =",a[1])
-				store_number(a[1],i,(a[0]+1))
-				#counter += 1
-	#print (counter)"""
-#print (zxy.sum(axis = 0)) #depth searching. x and y coordinates should map with xy array.
-
-
 
 
 """for i in range(9):
@@ -201,7 +182,4 @@ solved1 =
   [ 3.  4.  1.  6.  5.  2.  7.  8.  9.]
   [ 2.  7.  9.  8.  4.  3.  6.  1.  5.]
   [ 5.  6.  8.  9.  1.  7.  2.  3.  4.]]
-
-
-
 """
