@@ -1,6 +1,6 @@
 import numpy as np
 import methods
-
+import scraper
 # xy is the 9x9 array which has numbers 1-9 to notate known numbers and 0 to notate unknown numbers
 xy = np.zeros((9,9))
 
@@ -31,7 +31,9 @@ solved =  np.array(
   [ 2., 7., 9., 8., 4., 3., 6., 1., 5.],
   [ 5., 6., 8., 9., 1., 7., 2., 3., 4.]])
 
+unsolved = scraper.grab_unsolved()
 
+print(unsolved)
 
 for i in range(9):
     for j in range(9):
